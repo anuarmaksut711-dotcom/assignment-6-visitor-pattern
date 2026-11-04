@@ -3,8 +3,8 @@
   PUBLIC '-//W3C//DTD SVG 1.0//EN'
   'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
 <svg width="1160" height="800" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1160 800" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<title>...</title>
-	<desc>...</desc>
+	<title>Visitor File System - UML class diagram</title>
+	<desc>File system elements, tree traversal and three visitor operations.</desc>
 	<clipPath id="clip">
 		<rect x="0" y="0" width="1160" height="800"/>
 	</clipPath>
