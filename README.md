@@ -70,3 +70,5 @@ JUnit 5: проверяются двойная диспетчеризация, �
 Результат: 25 тестов, все пройдены.
 
 Отчёт: [docs/report.pdf](docs/report.pdf).
+
+UML-диаграмма: [SVG](docs/uml.svg), [PDF](docs/uml.pdf).
