@@ -15,6 +15,12 @@ public final class Main {
         for (String path : searchVisitor.getMatches()) {
             System.out.println("  " + path);
         }
+
+        StatisticsVisitor statistics = new StatisticsVisitor();
+        walker.walk(root, statistics);
+        System.out.println("Files: " + statistics.getFileCount());
+        System.out.println("Directories: " + statistics.getDirectoryCount());
+        System.out.println("Maximum depth: " + statistics.getMaximumDepth());
     }
 
     private static DirectoryNode createSampleTree() {
