@@ -1,10 +1,10 @@
 # Visitor File System
 
-Файловая система в памяти на Java 17. Сборка и тесты через Maven.
+An in-memory file system built with Java 17, Maven and JUnit 5.
 
-## Запуск
+## Run
 
-Команды выполняются из корня проекта:
+Run these commands from the project root:
 
 ```bash
 mvn test
@@ -12,44 +12,45 @@ mvn compile
 java -cp target/classes kz.aitu.visitor.Main
 ```
 
-## Устройство
+## Design
 
-`FileNode` хранит имя и размер в байтах. `DirectoryNode` хранит дочерние элементы.
-Метод `accept` вызывает соответствующий `visit` без проверки типа объекта.
+`FileNode` stores a name and a size in bytes. `DirectoryNode` stores child elements.
+Each `accept` method calls the matching `visit` overload without checking the
+element type.
 
-`FileTreeWalker` обходит дерево в глубину. Он сбрасывает посетителя перед каждым
-запуском и передаёт путь и глубину перед вызовом `accept`. Посетители не обходят
-дочерние элементы. Каждый узел обрабатывается один раз за операцию.
+`FileTreeWalker` owns the depth-first traversal. It resets the visitor before each
+run and passes the current path and depth before calling `accept`. Visitors do
+not traverse children. Each reachable node is processed once per operation.
 
-- `TotalSizeVisitor` суммирует размеры файлов. При переполнении `long` выбрасывается `ArithmeticException`.
-- `SearchVisitor` принимает `Predicate<String>` для имени и минимальный размер включительно.
-- `StatisticsVisitor` считает файлы, каталоги и максимальную глубину. Корневой каталог входит в счётчик каталогов.
+- `TotalSizeVisitor` sums file sizes. Overflow throws `ArithmeticException`.
+- `SearchVisitor` accepts a `Predicate<String>` for filenames and an inclusive minimum size.
+- `StatisticsVisitor` counts files and directories and records the maximum depth. The root directory is included in the directory count.
 
-Пути считаются относительно выбранного корня, используют `/` и сортируются
-лексикографически. Имя корневого каталога не включается. Если корень является
-файлом, результат поиска содержит его имя. Глубина корня равна нулю.
+Search paths are relative to the selected root, use `/` and are sorted
+lexicographically. The root directory name is omitted. When the root is a file,
+its path is its filename. The root depth is zero.
 
-Посетителей можно повторно использовать через `FileTreeWalker.walk`.
-Прямой вызов `accept` обрабатывает только один узел без сброса состояния.
-Обход выполняется последовательно; менять дерево во время обхода нельзя.
+Visitors can be reused through `FileTreeWalker.walk`. Calling `accept` directly
+processes one node without resetting visitor state. Traversal is sequential;
+the tree must not be changed during a traversal.
 
-## Ограничения дерева
+## Tree constraints
 
-Размер файла не может быть отрицательным. Имена непустые, не содержат `/` и `\`,
-не равны `.` или `..`. Имена соседних элементов уникальны с учётом регистра.
-Один узел принадлежит не более чем одному родителю. Циклы и добавление каталога
-в самого себя запрещены.
-Недопустимое добавление выбрасывает `IllegalArgumentException` и не меняет дерево.
-Список дочерних элементов и результаты поиска доступны только для чтения.
+File sizes must be non-negative. Names must not be blank, contain `/` or `\`,
+or equal `.` or `..`. Sibling names are unique and case-sensitive. Each node has
+at most one parent. Cycles and adding a directory to itself are rejected.
+Invalid additions throw `IllegalArgumentException` without changing the tree.
+Child collections and search results are returned as immutable snapshots.
 
-## Расширение
+## Extension
 
-`StatisticsVisitor` добавлен отдельным коммитом без изменения `FileNode`,
-`DirectoryNode`, `Visitor` и обходчика. Новая операция реализует два метода `visit`
-и при необходимости методы `reset` и `setContext`.
-Новый тип элемента потребует нового метода в `Visitor` и изменений всех посетителей.
+`StatisticsVisitor` was added in a separate commit without changing `FileNode`,
+`DirectoryNode`, `Visitor` or the walker. A new operation implements both `visit`
+methods and overrides `reset` and `setContext` when needed.
+Adding a new element type requires a new `Visitor` overload and updates to all
+existing visitors.
 
-## Пример вывода
+## Output
 
 ```text
 Total size: 2798 bytes
@@ -62,14 +63,14 @@ Directories: 5
 Maximum depth: 3
 ```
 
-## Тесты
+## Tests
 
-JUnit 5: проверяются двойная диспетчеризация, вложенные каталоги, размер, оба
-условия поиска, относительные пути, сортировка, статистика, пустые каталоги,
-повторные запуски и недопустимые изменения дерева.
+JUnit 5 tests cover double dispatch, nested directories, size accumulation, both
+search conditions, relative paths, sorting, statistics, empty directories,
+repeated runs and invalid tree changes.
 
-Результат: 25 тестов, все пройдены.
+Result: 25 tests passed.
 
-Отчёт: [docs/report.pdf](docs/report.pdf).
+Report: [docs/report.pdf](docs/report.pdf).
 
-UML-диаграмма: [SVG](docs/uml.svg), [PDF](docs/uml.pdf).
+UML diagram: [SVG](docs/uml.svg), [PDF](docs/uml.pdf).

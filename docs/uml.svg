@@ -104,7 +104,7 @@
 			<polygon points="320 490, 331 484, 331 496" style="stroke: rgb(14%,16%,18%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
 			<polygon points="710 365, 717 370, 724 365, 717 360" style="stroke: rgb(14%,16%,18%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
 			<polyline points="724 365, 750 365, 750 600, 345 600, 345 560, 320 560" style="stroke: rgb(14%,16%,18%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd;"/>
-			<text x="430" y="588" style="font-family: Arial; font-size: 9px;fill: rgb(14%,16%,18%); stroke:none;" transform="translate(0,1176) scale(1,-1)">дочерние узлы</text>
+			<text x="430" y="588" style="font-family: Arial; font-size: 9px;fill: rgb(14%,16%,18%); stroke:none;" transform="translate(0,1176) scale(1,-1)">child nodes</text>
 			<text x="324" y="546" style="font-family: Arial; font-size: 9px;fill: rgb(14%,16%,18%); stroke:none;" transform="translate(0,1092) scale(1,-1)">0..*</text>
 			<text x="714" y="349" style="font-family: Arial; font-size: 9px;fill: rgb(14%,16%,18%); stroke:none;" transform="translate(0,698) scale(1,-1)">0..1</text>
 			<polyline points="380 710, 320 710" style="stroke: rgb(14%,16%,18%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd; stroke-dasharray: 5, 3;"/>
@@ -118,28 +118,6 @@
 			<polygon points="1110 695, 1121 689, 1121 701" style="stroke: rgb(14%,16%,18%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
 			<polyline points="572 225, 572 245" style="stroke: rgb(14%,16%,18%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd; stroke-dasharray: 5, 3;"/>
 			<polyline points="945 225, 945 245" style="stroke: rgb(14%,16%,18%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd; stroke-dasharray: 5, 3;"/>
-			<polygon points="20 290, 320 290, 320 378, 308 390, 20 390" style="stroke: rgb(35%,38%,40%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(97%,97%,97%); fill-rule: evenodd;"/>
-			<polyline points="308 390, 308 378, 320 378" style="stroke: rgb(35%,38%,40%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd;"/>
-			<text x="30" y="370" style="font-family: Arial; font-size: 9px;fill: rgb(14%,16%,18%); stroke:none;" transform="translate(0,740) scale(1,-1)">В children добавляются только FileSystemNode.</text>
-			<text x="30" y="354" style="font-family: Arial; font-size: 9px;fill: rgb(14%,16%,18%); stroke:none;" transform="translate(0,708) scale(1,-1)">Один родитель; циклы запрещены.</text>
-			<text x="30" y="338" style="font-family: Arial; font-size: 9px;fill: rgb(14%,16%,18%); stroke:none;" transform="translate(0,676) scale(1,-1)">Имена соседних узлов уникальны.</text>
-			<text x="30" y="322" style="font-family: Arial; font-size: 9px;fill: rgb(14%,16%,18%); stroke:none;" transform="translate(0,644) scale(1,-1)">Корень может существовать без родителя.</text>
-			<text x="30" y="306" style="font-family: Arial; font-size: 9px;fill: rgb(14%,16%,18%); stroke:none;" transform="translate(0,612) scale(1,-1)">Конструкторы и Main не показаны.</text>
-			<polyline points="320 332, 380 332" style="stroke: rgb(35%,38%,40%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd; stroke-dasharray: 5, 3;"/>
-			<polyline points="20 87, 60 87" style="stroke: rgb(14%,16%,18%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd;"/>
-			<polygon points="71 87, 60 81, 60 93" style="stroke: rgb(14%,16%,18%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
-			<text x="85" y="83" style="font-family: Arial; font-size: 9px;fill: rgb(14%,16%,18%); stroke:none;" transform="translate(0,166) scale(1,-1)">Наследование</text>
-			<polyline points="20 71, 60 71" style="stroke: rgb(14%,16%,18%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd; stroke-dasharray: 5, 3;"/>
-			<polygon points="71 71, 60 65, 60 77" style="stroke: rgb(14%,16%,18%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
-			<text x="85" y="67" style="font-family: Arial; font-size: 9px;fill: rgb(14%,16%,18%); stroke:none;" transform="translate(0,134) scale(1,-1)">Реализация интерфейса</text>
-			<polygon points="20 55, 27 60, 34 55, 27 50" style="stroke: rgb(14%,16%,18%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
-			<polyline points="34 55, 71 55" style="stroke: rgb(14%,16%,18%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd;"/>
-			<text x="85" y="51" style="font-family: Arial; font-size: 9px;fill: rgb(14%,16%,18%); stroke:none;" transform="translate(0,102) scale(1,-1)">Агрегация</text>
-			<polyline points="20 39, 71 39" style="stroke: rgb(14%,16%,18%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd; stroke-dasharray: 5, 3;"/>
-			<polyline points="63 43, 71 39, 63 35" style="stroke: rgb(14%,16%,18%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd;"/>
-			<text x="85" y="35" style="font-family: Arial; font-size: 9px;fill: rgb(14%,16%,18%); stroke:none;" transform="translate(0,70) scale(1,-1)">Зависимость</text>
-			<text x="20" y="19" style="font-family: Arial; font-size: 9px;fill: rgb(14%,16%,18%); stroke:none;" transform="translate(0,38) scale(1,-1)">+ public; - private; ~ package-private</text>
-			<text x="20" y="4" style="font-family: Arial; font-size: 9px;fill: rgb(14%,16%,18%); stroke:none;" transform="translate(0,8) scale(1,-1)">Курсив: абстрактный класс.</text>
 		</g>
 	</g>
 </svg>
